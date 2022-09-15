@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>Eygen Course</title>
+	</head>
+	<body>
+
+		<%- include('menu'); -%>
+		<br>
+		<br>
+		<div class="vertical-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-md-offset-3 well">
+						<h2>Delete Course</h2><br>
+
+						<% if (error_delete) { %>
+						<div >
+							<div role="alert" id="my-alert-danger" class="alert alert-danger fade in"><%= error_delete %></div>
+						
+						</div>
+
+						<% }else { %>
+
+						<table style="width:100%" >
+						<tr class='c_black'>
+							<th>Photo</th>
+							<th>Course Name</th>
+							<th>Category</th>
+							<th>Duration</th>
+							<th></th>
+						</tr>
+						<% if (c_course.map) { %>
+							<% c_course.map(item=> { %>
+						<tr>
+							<td><img src='/api/<%= item.photo %>' width="50" height="50"/></td>
+							<td><%= item.name %></td>
+							<td><%= item.category %></td>
+							<td><%= item.duration_hr%> Hours</td>
+
+							<td>
+								<form action="http://localhost:5001/api/delete/<%= item._id %>" method="post">
+								<button type='submit' class="btn btn-lg">Delete</button></td>
+</form>
+						</tr>
+
+							<% }) %>
+							<% } %>
+						<% }%>
+						</table>
+						</div>
+					</div>
+				</div>
+	</body>
+</html>
+

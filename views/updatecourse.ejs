@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>Eygen Course</title>
+	</head>
+	<body>
+		<%- include('menu'); -%>
+		<br>
+		<br>
+
+		<div class="vertical-center">
+			<div class="container">
+				<div class="row">
+					
+							<% if ( out_course_id ) { %>
+
+							<form action="http://localhost:5001/api/updatecourse/<%= out_course_id %>" id='updateform' method="post" >
+								<%	}else{  %>
+
+								<form action="http://localhost:5001/api/updatecourse" id='updateform' method="post" >
+							<%} %>
+					<div class="col-md-12 col-md-offset-3 well">
+
+						<h2>Update Course</h2>
+
+						<h1 name="course_name"><b> <%= out_load %> </b></h1>
+						<input type="text" name="o_id" hidden id="o_id" style='width:100%;' value=<%= out_course_id %> >
+
+						<br>
+						<div >
+							<div class="col col-md-2"><label for='sel_course'>Select Course : </label>
+
+							</div>
+								<span class="col col-md-2">
+
+									<select style='width:150px;' name="sel_course" id="sel_course" onchange="this.form.submit()">
+										<option id="-"  name="-"> - </option>
+										<% if (variables.map) { %>
+										<% variables.map(item=> { %>
+
+										<option id="<%= item._id%>"  name="<%= item.name%>"> <%= item.name %> </option>
+										<% }) %>
+										<% } %>
+									</select>
+
+								</span>
+							</form>
+
+							<div class="col col-md-1">
+								<label for="category">Category:</label> 
+							</div>
+							<span class="col col-md-2">
+								<select name="category" id="category">
+
+									<% if (out_category) { %>
+									<option id="<%= out_category %>"  name="<%= out_category %>"> <%= out_category%> </option>
+									<% } %>
+								</select>
+
+							</span>
+
+							<!-- <img style='float:right;' src="<%= out_course_img %>" width="80" height="80" > -->
+						</div>
+
+
+						<tr><td><label ></label></td></tr>
+
+						<div class="row">  </div>
+						<div class="col-md-12 well">
+							<div class="col-md-12 col-md-offset--1">
+								<label for='one_liner'>One Liner: </label>
+
+								<input type="text" name="one_liner" id="one_liner" style='width:100%;' value=<%= out_one_liner %> >
+
+							</div>
+						</div>
+
+
+						<div class="row">  </div>
+						<div class="col-md-12 well">
+							<div class="col-md-12 col-md-offset--1">
+								<label for='duration_hr'>Duration in Hours: </label>
+								<input type="text" name="duration_hr" id="duration_hr" value=<%= out_duration %>>
+
+								<label for='Language'>Language: </label>
+								<input type="text" name="language" id="Language" value=<%= out_language %> >
+
+								<div>
+				<div class="input-group well ">
+					<h4>Upload Cover Photo</h4>
+					<label for='files'>Select files</label>
+						<input id='files' type="file" multiple>
+						<br>
+				<button class="submit-btn" type='submit'>Upload file</button>
+
+
+								</div>
+							</div>
+						</div>
+
+
+						<div class="container mt-4 mb-4">
+							<!--Bootstrap classes arrange web page components into columns and rows in a grid -->
+							<div class="row justify-content-md-center">
+								<div class="col-md-12 col-lg-8">
+									<h1 class="h2 mb-4">Description</h1>
+									<label></label>
+									<div class="form-group">
+										<textarea id="editor" name="description" ><%= out_description %></textarea>
+									</div>
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	</body>
+
+	<script src='/js/upload_update.js'></script>
+</html>
+
+
+

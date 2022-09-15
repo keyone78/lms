@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>Eygen Course</title>
+	</head>
+	<body>
+		<%- include('menu'); -%>
+		<br>
+		<br>
+		<div id='id_uploadfile'>
+		<p><%= tagline %></p>
+		<form action="http://localhost:5001/api/createcourse" id='form' enctype="multipart/form-data" method="post">
+	<div class="container md-12 mb-4 well">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-11  well">
+					<h2>Create New Course</h2><br>
+						<div >
+			<div class="input-group">
+
+				</div>
+				<div class="input-group well ">
+					<h4>Upload Cover Photo</h4>
+					<label for='files'>Select files</label>
+						<input id='files' class="form-control-file" name="uploaded_file" type="file"  >
+						<br>
+		</div>
+			</div>
+
+
+			<div class="col col-md-2"><label for='course_name'>Course Name: </label></div>
+
+				<span class="col col-md-5">
+					<input type="text" name="course_name" id="course_name"  style='width:100%;'>
+						</span>
+							<div class="col col-md-1">
+								<label for="category">Category:</label> 
+							</div>
+							<span class="col col-md-2">
+								<select name="category" id="category">
+
+									<option value="Programing Languages">Programing Languages</option>
+									<option value="Info communication">Info communication</option>
+									<option value="Analytics">Analytics</option>
+									<option value="web_development">Web Development</option>
+								</select>
+							</span>
+						</div>
+						<tr><td><label ></label></td></tr>
+
+						<div class="row">  </div>
+						<div class="col-md-11 well">
+							<div class="col-md-12 col-md-offset--1">
+								<label for='one_liner'>One Liner: </label>
+
+								<input type="text" name="one_liner" id="one_liner" style='width:100%;'>
+
+							</div>
+						</div>
+
+
+						<div class="row">  </div>
+						<div id='last_blk' class="col-md-11 well">
+							<div class="col-md-12 col-md-offset--1">
+								<label for='duration_hr'>Duration in Hours: </label>
+								<input type="text" name="duration_hr" id="duration_hr" >
+
+								<label for='language'>Language: </label>
+								<input type="text" name="language" id="language" >
+
+								<div>
+									<div class="container">
+		</div>
+	<script src='js/upload.js'></script>
+
+		</div>
+			</div>
+				</div>
+			<div class="container col-md-11 mb-4 well">
+				<div class="col-md-11 col-lg-8">
+					<h1 class="h2 mb-4">Description</h1>
+						<label></label>
+							<div class="form-group">
+								<textarea rows="4" cols="160"  id="description" name="description"></textarea>
+									</div>
+									<button type="submit" class="btn btn-primary">Submit</button>
+
+			</form>
+				</div>
+					</div>
+					</div>
+				</div>
+
+	</body>
+</html>
+
+

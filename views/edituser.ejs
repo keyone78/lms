@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>Eygen Course</title>
+	</head>
+	<body>
+
+		<%- include('menu'); -%>
+		<br>
+		<br>
+			<div class="vertical-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-md-offset-2 well">
+
+						<h2>Change Profile</h2><br>
+						<form action="http://localhost:5001/api/editProfile" method="post">
+
+							<!-- <p class='sign_in_header' > Have An Account? Log in Now</p> -->
+							<table>
+								<tr ><p style='color:red;' ><%= err_msg %></p></tr>
+								<tr>
+									<td><label class='col col-md-12' for='name'>Name:</label></td>
+									<td><input type="text" name="name" id="name" readonly value=<%= user_name %>></></td>
+								</tr>
+
+								<tr><td><label ></label></td></tr>
+								<tr>
+									<td><label class='col col-md-12' for='email_id'>Email ID:   </label></td>
+									<td><input type="text" name="email_id" id="email_id" readonly value=<%= user_email %>></></td>
+								</tr>
+
+								<tr>
+									<td></td>
+								<td><input type="submit" style='width:200px; margin-top:13px;' class="btn btn-primary" value="Change Profile" /></td>
+								</tr>
+
+								</tr></table>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		<div class="vertical-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-md-offset-2 well">
+
+						<h2>Change Password</h2><br>
+						<!-- <form action="/signin" method="post" enctype="multipart/form-data"> -->
+						<form action="http://localhost:5001/api/change_pswd/<%= _id %>" method="post">
+
+							<!-- <p class='sign_in_header' > Have An Account? Log in Now</p> -->
+							<table>
+								<tr ><p style='color:red;' ><%= err_msg_passwd %></p></tr>
+								<tr>
+									<td><label for='passwd'>New Password:</label></td>
+									<td><input type="text" name="passwd" id="passwd"></></td>
+								</tr>
+								<tr><td><label ></label></td></tr>
+								<tr>
+									<td><label  for='passwd_c'>Confirm New Password: &nbsp;</label></td>
+									<td><input type="text" name="passwd_c" id="passwd_c"></></td>
+								</tr>
+								<tr style='padding:5px;'>
+									<td></td>
+								<td><input style='width:200px; margin-top:13px;' class="btn btn-primary"  type="submit" value="Change Password" /></td>
+								</tr>
+								</tr></table>
+						</form>
+					</div>
+				</div>
+			</div>
+
+	</body>
+</html>
+
+
+

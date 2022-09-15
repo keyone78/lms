@@ -1,0 +1,100 @@
+<html>
+	<head><title>LMS Login Page</title></head>
+
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/api/css/bootstrap.min.css">
+	<body>
+		<!-- using action form to  pass in parm -->
+		<form action="http://localhost:5001/api/register" method="post">
+
+			<br><br>
+			<div class="vertical-center">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-4 col-md-offset-4 well">
+
+							<p id='login_header'  > New to EGyan? Sign up for free !</p>
+							<table>
+
+								<tr ><p style='color:red;' ><%= err_msg_signup %></p></tr>
+								<tr ><td class='col col-md-0'>
+										<label for="login_type">Type:</label> </td><td>
+										<select name="login_type" id="login_type">
+											<option value="instructor">Instructor</option>
+											<option value="student">Student</option>
+										</select></td>
+								</tr>
+
+								<tr><td><label ></label></td></tr>
+								<tr>
+									<td><label for='fullname'>Full name: </label></td>
+									<td><input type="text" name="fullname" id="fullname"></></td>
+
+									<tr><td><label ></label></td></tr>
+									<tr>
+										<td><label for='email'>Email ID: </label></td>
+										<td><input type="text" name="email" id="email"></></td>
+									</tr>
+
+									<tr>
+										<td><label ></label></td></tr>
+									<tr>
+										<td><label for='passwd'>Password: </label></td>
+										<td><input type="text" name="passwd" id="passwd"></td>
+									</tr>
+
+									<td><label ></label></td></tr>
+
+								<tr>
+									<td><label for='passwd_c'>Confirm Password: </label></td>
+									<td><input type="text" name="passwd_c" id="passwd_c"></td>
+								</tr>
+								<tr>
+									<!-- <td><input type="reset" value="Clear All" /></td> -->
+									<td><input type="submit" value="Regiser Now!" /></td>
+								</tr>
+
+								</tr></table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			</form>
+
+			<form action="http://localhost:5001/api/login" method="post">
+				<div class="vertical-center">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4 col-md-offset-4 well">
+
+								<p class='sign_in_header' > Have An Account? Log in Now</p>
+								<table>
+								<tr ><p style='color:red;' ><%= err_msg %></p></tr>
+									<tr>
+										<td><label for='email_id'>Email ID:</label></td>
+										<td><input type="text" name="email" id="email_id"></></td>
+									</tr>
+
+									<tr><td><label ></label></td></tr>
+									<tr>
+										<td><label for='passwd'>Password:</label></td>
+										<td><input type="text" name="passwd" id="passwd"></></td>
+									</tr>
+
+									<td><input type="submit" value="Login" /></td>
+									</tr>
+
+									</tr></table>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</form>
+
+
+	</body>	
+</html>
